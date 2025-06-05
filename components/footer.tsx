@@ -11,6 +11,10 @@ export default function Footer() {
               ClutchScore: AI-Powered Insights for the Ultimate Gamer
             </p>
           </div>
+          <div className="flex flex-col items-center mt-4 md:mt-0">
+            <p className="text-sm text-gray-500 mb-2">Developed by</p>
+            <img src="/images/qybrrlabs.png" alt="QybrrLabs Logo" className="h-8" />
+          </div>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-500 hover:text-[#0070CC] transition-colors">
               Privacy Policy

@@ -39,6 +39,7 @@ export default function Header() {
               <li><Link href="/" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Home</Link></li>
               <li><Link href="/login" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
               <li><Link href="/signup" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
+              <li><Link href="/socials" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
               <li><Link href="https://github.com/DeveloperAspire/ClutchScoreAI" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium"><GithubIcon className="h-6 w-6" /></Link></li>
             </ul>
           </nav>
@@ -67,6 +68,7 @@ export default function Header() {
               <li><Link href="/" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Home</Link></li>
               <li><Link href="/login" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
               <li><Link href="/signup" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
+              <li><Link href="/socials" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
               <li className="pt-2">
                 <Link href="https://github.com/DeveloperAspire/ClutchScoreAI" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-[#0070CC] hover:bg-[#005da9] text-white">
