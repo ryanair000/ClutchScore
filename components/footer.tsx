@@ -17,12 +17,6 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-500 hover:text-[#0070CC] transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-[#0070CC] transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-gray-500 hover:text-[#0070CC] transition-colors">
               Contact
             </a>
           </div>
