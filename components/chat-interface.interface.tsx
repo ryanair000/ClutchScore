@@ -7,4 +7,4 @@ interface Message {
     name: string;
     image: string;
   };
-}
+} 
