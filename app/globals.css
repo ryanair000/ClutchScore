@@ -8,6 +8,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --clutchscore-blue-primary: 0 70% 80%; /* #0070CC */
+  --clutchscore-blue-secondary: 200 70% 50%; /* #2EA9DF */
+  --clutchscore-blue-dark: 200 80% 33%; /* #005da9 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +19,10 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --clutchscore-blue-primary: 200 70% 60%; /* #0070CC - adjusted for dark mode */
+    --clutchscore-blue-secondary: 200 70% 40%; /* #2EA9DF - adjusted for dark mode */
+    --clutchscore-blue-dark: 200 80% 25%; /* #005da9 - adjusted for dark mode */
   }
 }
 

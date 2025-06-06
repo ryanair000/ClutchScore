@@ -30,7 +30,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img src="/images/logo.png" alt="ClutchScore Logo" className="h-8 w-8" />
-              <span className="ml-2 text-xl font-bold bg-gradient-to-r from-[#0070CC] to-[#2EA9DF] bg-clip-text text-transparent">
+              <span className="ml-2 text-xl font-bold bg-gradient-to-r from-clutchscore-primary to-clutchscore-secondary bg-clip-text text-transparent">
                 ClutchScore
               </span>
             </Link>
@@ -38,11 +38,11 @@ export default function Header() {
           
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
-              <li><Link href="/" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Home</Link></li>
-              <li><Link href="/login" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
-              <li><Link href="/signup" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
-              <li><Link href="/socials" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
-              <li><Link href="/profile" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Profile</Link></li>
+              <li><Link href="/" className="text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Home</Link></li>
+              <li><Link href="/login" className="text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Login</Link></li>
+              <li><Link href="/signup" className="text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Sign Up</Link></li>
+              <li><Link href="/socials" className="text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Socials</Link></li>
+              <li><Link href="/profile" className="text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Profile</Link></li>
             </ul>
           </nav>
           
@@ -51,7 +51,7 @@ export default function Header() {
               onClick={() => router.push('/chat')}>
               New Session
             </Button>
-            <Button className="bg-[#0070CC] hover:bg-[#005da9] text-white hidden md:block"
+            <Button className="bg-clutchscore-primary hover:bg-clutchscore-dark text-white hidden md:block"
               onClick={() => router.push('/chat')}>
               Start Chat
             </Button>
@@ -60,6 +60,9 @@ export default function Header() {
               size="icon"
               className="md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <Menu className="h-6 w-6" />
             </Button>
@@ -67,15 +70,15 @@ export default function Header() {
         </div>
         
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-300">
+          <div id="mobile-menu" className="md:hidden py-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-300">
             <ul className="space-y-4 px-2">
-              <li><Link href="/" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Home</Link></li>
-              <li><Link href="/login" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
-              <li><Link href="/signup" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
-              <li><Link href="/socials" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
-              <li><Link href="/profile" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Profile</Link></li>
+              <li><Link href="/" className="block text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Home</Link></li>
+              <li><Link href="/login" className="block text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Login</Link></li>
+              <li><Link href="/signup" className="block text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Sign Up</Link></li>
+              <li><Link href="/socials" className="block text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Socials</Link></li>
+              <li><Link href="/profile" className="block text-gray-700 hover:text-clutchscore-primary transition-colors font-medium">Profile</Link></li>
               <li className="pt-2">
-                <Button className="w-full bg-[#0070CC] hover:bg-[#005da9] text-white"
+                <Button className="w-full bg-clutchscore-primary hover:bg-clutchscore-dark text-white"
                   onClick={() => router.push('/chat')}>
                   Start Chat
                 </Button>

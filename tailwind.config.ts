@@ -53,6 +53,11 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        clutchscore: {
+          primary: 'hsl(var(--clutchscore-blue-primary))',
+          secondary: 'hsl(var(--clutchscore-blue-secondary))',
+          dark: 'hsl(var(--clutchscore-blue-dark))',
+        },
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',

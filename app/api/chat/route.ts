@@ -34,12 +34,14 @@ const SYSTEM_MESSAGE: ChatCompletionRequestMessage = {
 export async function POST(request: Request) {
   try {
     const clonedRequest = request.clone();
-    const { messages, apiKey } = await clonedRequest.json();
+    const { messages } = await clonedRequest.json();
     
-    if (!apiKey) {
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+    if (!OPENAI_API_KEY) {
       return NextResponse.json(
-        { error: 'API key is required' },
-        { status: 400 }
+        { error: 'Server-side OpenAI API key is not configured.' },
+        { status: 500 }
       );
     }
     
@@ -52,7 +54,7 @@ export async function POST(request: Request) {
     
     const responseContent = await generateChatCompletion(
       fullMessages,
-      apiKey
+      OPENAI_API_KEY
     );
     
     return NextResponse.json({ response: responseContent });

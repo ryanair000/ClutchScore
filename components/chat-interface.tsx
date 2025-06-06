@@ -13,9 +13,6 @@ import { PacmanLoader } from "react-spinners";
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
-// Retrieve API key from environment variable
-const OPENAI_API_KEY = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
-
 interface Message {
   id: number;
   content: string;
@@ -89,7 +86,7 @@ export default function ChatInterface() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ messages: [...messages, userMessage], apiKey: OPENAI_API_KEY }),
+        body: JSON.stringify({ messages: [...messages, userMessage] }),
       });
 
       if (!response.ok) {
