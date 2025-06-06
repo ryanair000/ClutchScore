@@ -42,6 +42,7 @@ export default function Header() {
               <li><Link href="/login" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
               <li><Link href="/signup" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
               <li><Link href="/socials" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
+              <li><Link href="/profile" className="text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Profile</Link></li>
             </ul>
           </nav>
           
@@ -72,6 +73,7 @@ export default function Header() {
               <li><Link href="/login" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Login</Link></li>
               <li><Link href="/signup" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
               <li><Link href="/socials" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
+              <li><Link href="/profile" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Profile</Link></li>
               <li className="pt-2">
                 <Button className="w-full bg-[#0070CC] hover:bg-[#005da9] text-white"
                   onClick={() => router.push('/chat')}>
