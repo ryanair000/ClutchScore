@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Menu, GithubIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TowerControl as GameController } from 'lucide-react';
@@ -9,6 +10,7 @@ import { TowerControl as GameController } from 'lucide-react';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +46,12 @@ export default function Header() {
           </nav>
           
           <div className="flex items-center">
-            <Button variant="outline" className="mr-2 hidden md:block">
+            <Button variant="outline" className="mr-2 hidden md:block"
+              onClick={() => router.push('/chat')}>
               New Session
             </Button>
-            <Button className="bg-[#0070CC] hover:bg-[#005da9] text-white hidden md:block">
+            <Button className="bg-[#0070CC] hover:bg-[#005da9] text-white hidden md:block"
+              onClick={() => router.push('/chat')}>
               Start Chat
             </Button>
             <Button 
@@ -69,12 +73,14 @@ export default function Header() {
               <li><Link href="/signup" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Sign Up</Link></li>
               <li><Link href="/socials" className="block text-gray-700 hover:text-[#0070CC] transition-colors font-medium">Socials</Link></li>
               <li className="pt-2">
-                <Button className="w-full bg-[#0070CC] hover:bg-[#005da9] text-white">
+                <Button className="w-full bg-[#0070CC] hover:bg-[#005da9] text-white"
+                  onClick={() => router.push('/chat')}>
                   Start Chat
                 </Button>
               </li>
               <li className="pt-2">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full"
+                  onClick={() => router.push('/chat')}>
                   New Session
                 </Button>
               </li>
