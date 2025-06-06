@@ -93,7 +93,18 @@ export default function ChatInterface() {
       });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.statusText}`);
+        let errorDetail = `Status: ${response.status} ${response.statusText}`;
+        try {
+          const errorBody = await response.json();
+          if (errorBody.error) {
+            errorDetail = errorBody.error;
+          } else if (errorBody.message) {
+            errorDetail = errorBody.message;
+          }
+        } catch (jsonError) {
+          console.error('Failed to parse error response:', jsonError);
+        }
+        throw new Error(`API request failed: ${errorDetail}`);
       }
 
       const data = await response.json();
@@ -107,9 +118,14 @@ export default function ChatInterface() {
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
+      let userFriendlyMessage = 'Oops! Something went wrong. Please try again.';
+      if (error instanceof Error) {
+        userFriendlyMessage = `Error: ${error.message}. Please try again.`;
+      }
+
       const errorMessage: Message = {
         id: messages.length + 2,
-        content: 'Oops! Something went wrong. Please try again.',
+        content: userFriendlyMessage,
         sender: 'ai',
         timestamp: new Date().toISOString(),
       };
@@ -247,30 +263,26 @@ export default function ChatInterface() {
           </div>
         </TabsContent>
         
-        <TabsContent value="trophies" className="h-full flex-1 flex items-center justify-center">
-          <div className="text-center p-8">
-            <Trophy className="mx-auto h-12 w-12 text-[#0070CC] mb-4" />
-            <h3 className="text-xl font-bold mb-2">Trophy Insights</h3>
-            <p className="text-muted-foreground mb-4">
-              Chat with the AI to get trophy guides and achievement help for your PlayStation games.
-            </p>
-            <Button onClick={() => setCurrentTab('chat')} className="bg-[#0070CC] hover:bg-[#005da9] text-white">
-              Start a conversation
-            </Button>
-          </div>
+        <TabsContent value="trophies" className="h-full flex-1 flex flex-col items-center justify-center p-4">
+          <Trophy className="w-16 h-16 text-gray-400 mb-4" />
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">Trophy Assistant</h3>
+          <p className="text-center text-gray-500 dark:text-gray-400 mb-4 max-w-md">
+            Here you can track your trophy progress, get tips for elusive trophies, and discover guides for 100% completion.
+          </p>
+          <Button variant="outline" className="bg-[#0070CC] hover:bg-[#005da9] text-white">
+            Explore Trophy Guides
+          </Button>
         </TabsContent>
         
-        <TabsContent value="multiplayer" className="h-full flex-1 flex items-center justify-center">
-          <div className="text-center p-8">
-            <Users className="mx-auto h-12 w-12 text-[#0070CC] mb-4" />
-            <h3 className="text-xl font-bold mb-2">Multiplayer Tips</h3>
-            <p className="text-muted-foreground mb-4">
-              Get advice on multiplayer setups, strategies, and finding teammates for your favorite games.
-            </p>
-            <Button onClick={() => setCurrentTab('chat')} className="bg-[#0070CC] hover:bg-[#005da9] text-white">
-              Start a conversation
-            </Button>
-          </div>
+        <TabsContent value="multiplayer" className="h-full flex-1 flex flex-col items-center justify-center p-4">
+          <Users className="w-16 h-16 text-gray-400 mb-4" />
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">Multiplayer Hub</h3>
+          <p className="text-center text-gray-500 dark:text-gray-400 mb-4 max-w-md">
+            Connect with other players, find gaming partners, and get strategies for your favorite multiplayer titles.
+          </p>
+          <Button variant="outline" className="bg-[#0070CC] hover:bg-[#005da9] text-white">
+            Find Gaming Partners
+          </Button>
         </TabsContent>
       </Tabs>
     </Card>
